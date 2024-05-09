@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <title>Vuetify NS</title>
+</head>
+<body>
+    <script type="text/x-template" id="app-template-table">
+        <v-app>
+          <v-container>
+            
+<v-container>
+    <div class="text-h2 active" >Custom Form made by Shahmeer </div>
+    <v-form
+            ref="form"
+            v-model="valid"
+            lazy-validation
+    >
+        <v-text-field
+                v-model="name"
+                :counter="10"
+                :rules="nameRules"
+                label="Name"
+                required
+        ></v-text-field>
+
+        <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                required
+        ></v-text-field>
+
+        <v-select
+                v-model="select"
+                :items="items"
+                :rules="[v => !!v || 'Item is required']"
+                label="Item"
+                required
+        ></v-select>
+
+        <v-checkbox
+                v-model="checkbox"
+                :rules="[v => !!v || 'You must agree to continue!']"
+                label="Do you agree?"
+                required
+        ></v-checkbox>
+
+        <v-btn
+                :disabled="!valid"
+                class="mr-4"
+                @click="validate"
+        >
+            Validate
+        </v-btn>
+
+        <v-btn
+                class="mr-4"
+                @click="reset"
+        >
+            Reset Form
+        </v-btn>
+
+        <v-btn
+                @click="resetValidation"
+        >
+            Reset Validation
+        </v-btn>
+    </v-form>
+</v-container>
+          </v-container>
+        </v-app>
+      </script>
+<div id="app">
+    
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vuetify@2.6.10/dist/vuetify.js"></script>
+<script src="${JSON.files.componentLogic}"></script>
+</body>
+
+</html>
